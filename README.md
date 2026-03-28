@@ -1,15 +1,17 @@
 <div align="center">
 
-# 🌊 AutoFlow AI
+# AutoFlow AI
 
-### _What if your invoices processed themselves?_
+### What if your invoices processed themselves?
 
 **An autonomous accounts payable system where 8 AI agents debate, vote, and execute payments — then learn from their mistakes.**
 
+<br/>
+
 [![n8n](https://img.shields.io/badge/n8n-148_Nodes-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white)](https://n8n-latest-1ikm.onrender.com)
-[![Groq](https://img.shields.io/badge/Groq-9_LLM_Calls-F55036?style=for-the-badge&logo=lightning&logoColor=white)](https://groq.com)
+[![Groq](https://img.shields.io/badge/Groq-9_LLM_Calls_Per_Invoice-F55036?style=for-the-badge&logo=lightning&logoColor=white)](https://groq.com)
 [![React](https://img.shields.io/badge/React_18-TypeScript-61DAFB?style=for-the-badge&logo=react&logoColor=black)](/)
-[![Live](https://img.shields.io/badge/Status-LIVE_🟢-00C853?style=for-the-badge)](https://n8n-latest-1ikm.onrender.com)
+[![Live](https://img.shields.io/badge/Status-LIVE-00C853?style=for-the-badge)](https://n8n-latest-1ikm.onrender.com)
 
 <br/>
 
@@ -17,13 +19,13 @@
 
 <br/>
 
-[🔗 Live n8n Workflow](https://n8n-latest-1ikm.onrender.com) · [📊 Live Database (Google Sheets)](https://docs.google.com/spreadsheets/d/1wPXKW_E7VJuVueJLkusT4NvcRww2GIUr0JwKxWByHTU/edit?gid=0#gid=0)
+[Live n8n Workflow](https://n8n-latest-1ikm.onrender.com) · [Live Database — Google Sheets](https://docs.google.com/spreadsheets/d/1wPXKW_E7VJuVueJLkusT4NvcRww2GIUr0JwKxWByHTU/edit?gid=0#gid=0)
 
 </div>
 
 ---
 
-## 💡 The Problem
+## The Problem
 
 Every enterprise processes thousands of invoices monthly. Each one needs to be read, validated, checked for fraud, approved by policy, and paid — a chain of manual steps that costs **$15–40 per invoice** and takes **days**.
 
@@ -31,143 +33,143 @@ What if an AI system could do all of that in **under 30 seconds**, catch fraud h
 
 ---
 
-## 🚀 What AutoFlow AI Does
+## What AutoFlow AI Does
 
-Drop an invoice (PDF, image, or raw text) → AutoFlow takes over:
+Drop an invoice (PDF, image, or raw text). AutoFlow takes over.
 
 ```
-📄 Invoice In ──▶ 🔍 OCR ──▶ 🧠 Parse ──▶ 👮 Validate ──▶ 🐝 Swarm Vote ──▶ 💳 Pay ──▶ ✅ Verify
-                                                                │
-                                                    ┌───────────┼───────────┐
-                                                    ▼           ▼           ▼
-                                              🔎 Anomaly   💱 Currency  🏢 Vendor
-                                              Detection    Risk        Trust
-                                                    │           │           │
-                                                    └─────── VOTE ──────────┘
-                                                          GO / BLOCK
-                                                              │
-                                                              ▼
-                                                    📈 Feedback Loop
-                                                   (Self-Improving)
+Invoice In ── OCR ── Parse ── Validate ── Swarm Vote ── Pay ── Verify
+                                              |
+                                  +-----------+-----------+
+                                  |           |           |
+                              Anomaly    Currency     Vendor
+                              Detection  Risk         Trust
+                                  |           |           |
+                                  +------ VOTE -----------+
+                                        GO / BLOCK
+                                            |
+                                            v
+                                      Feedback Loop
+                                     (Self-Improving)
 ```
 
 **Zero human intervention. Full audit trail. Self-improving accuracy.**
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 <div align="center">
 
-| Layer | What | Why |
+| Layer | Technology | Purpose |
 |:---:|:---|:---|
-| 🖥️ **Frontend** | React 18 + TypeScript + Vite + shadcn/ui | Real-time dashboard with 15s auto-polling |
-| ⚡ **Engine** | n8n (148 nodes, self-hosted) | Visual workflow orchestration for 8 AI agents |
-| 🧠 **LLM** | Groq — llama-3.1-8b-instant | 9 LLM calls per invoice, sub-second inference |
-| 🗄️ **Database** | Google Sheets (6 sheets) | Transparent, zero-config, publicly auditable |
-| 🔒 **Persistence** | Neon PostgreSQL (serverless) | n8n internal state + encrypted credentials |
-| 🏠 **Hosting** | Render (free tier) + UptimeRobot | 24/7 uptime with 5-min keep-alive pings |
+| **Frontend** | React 18 + TypeScript + Vite + shadcn/ui | Real-time dashboard with 15s auto-polling |
+| **Workflow Engine** | n8n (148 nodes, self-hosted on Render) | Visual orchestration for 8 AI agents |
+| **LLM Provider** | Groq — llama-3.1-8b-instant | 9 LLM calls per invoice, sub-second inference |
+| **Application Database** | Google Sheets (6 sheets) | Transparent, zero-config, publicly auditable |
+| **Internal Persistence** | Neon PostgreSQL (serverless) | n8n workflow state + encrypted credentials |
+| **Uptime** | Render (free tier) + UptimeRobot | 24/7 availability via 5-min keep-alive pings |
 
 </div>
 
 ---
 
-## 🐝 The Swarm — Our Secret Weapon
+## The Swarm Consensus Engine
 
-This isn't a simple LLM chain. AutoFlow AI implements **swarm intelligence** — three specialized agents independently analyze every invoice and cast weighted votes:
+This is not a simple LLM chain. AutoFlow AI implements **swarm intelligence** — three specialized agents independently analyze every invoice and cast weighted votes.
 
 <div align="center">
 
-| Agent | What It Does | How It Votes |
+| Agent | Analysis Method | Output |
 |:---:|:---|:---|
-| 🔎 **Anomaly Detection** | Z-score analysis + Benford's Law + frequency profiling against real vendor history | GO · REVIEW · BLOCK |
-| 💱 **Currency Risk** | Live FX rates + Covered Interest Parity formula for foreign currency exposure | GO · REVIEW · BLOCK |
-| 🏢 **Vendor Trust** | Trust score from historical invoice patterns — tenure, volume, variance, consistency | GO · REVIEW · BLOCK |
+| **Anomaly Detection** | Z-score analysis + Benford's Law + frequency profiling against real vendor history | GO / REVIEW / BLOCK |
+| **Currency Risk** | Live FX rates + Covered Interest Parity formula for foreign currency exposure | GO / REVIEW / BLOCK |
+| **Vendor Trust** | Trust score from historical invoice patterns — tenure, volume, variance, consistency | GO / REVIEW / BLOCK |
 
 </div>
 
 ### How Consensus Works
 
 ```
-Each agent votes with a confidence score (0–1)
-                    ↓
+Each agent votes with a confidence score (0-1)
+                    |
 Swarm Consensus Engine applies ADAPTIVE WEIGHTS
 (weights shift based on each agent's historical accuracy)
-                    ↓
+                    |
 Weighted risk score is computed
-                    ↓
-Final decision: GO ✅ │ REVIEW ⚠️ │ BLOCK 🛑
-                    ↓
+                    |
+Final decision:  GO  |  REVIEW  |  BLOCK
+                    |
 After payment outcome is known...
-                    ↓
-Feedback Loop evaluates each agent's vote vs. ground truth
-                    ↓
-Agent weights are updated — good calls rewarded, bad calls penalized
-                    ↓
-🔄 Next invoice benefits from updated weights
+                    |
+Feedback Loop evaluates each agent's vote against ground truth
+                    |
+Agent weights are updated — correct calls rewarded, incorrect calls penalized
+                    |
+Next invoice benefits from updated weights
 ```
 
-> **The system literally learns from every invoice it processes.** An agent that made a bad call last time carries less influence next time. An agent that caught fraud early gets amplified. This is a closed-loop self-improving system — not a static pipeline.
+The system learns from every invoice it processes. An agent that made a bad call carries less influence next time. An agent that caught fraud early gets amplified. This is a closed-loop self-improving system — not a static pipeline.
 
 ---
 
-## 🤖 The 8 Agents
+## The 8 Agents
 
 | # | Agent | Type | Role |
 |:---:|:---|:---:|:---|
-| 1 | **OCR Correction** | 🧠 LLM | Cleans and enhances raw OCR output |
-| 2 | **Document Understanding** | 🧠 LLM | Extracts structured fields — vendor, amount, dates, PO# |
-| 3 | **Intake Parser** | 🧠 LLM | Schema enforcement, confidence scoring |
-| 4 | **Supervisor** | 🧠 LLM | Quality gate — validates data meets thresholds |
-| 5 | **Anomaly Detection** | 🔀 Hybrid | Z-score + Benford's Law + LLM reasoning |
-| 6 | **Currency Risk** | 🔀 Hybrid | Live FX + CIP formula + LLM assessment |
-| 7 | **Vendor Trust** | 🔀 Hybrid | Statistical trust model + LLM judgment |
-| 8 | **CFO Intelligence** | 🧠 LLM + Memory | Multi-turn executive assistant with conversation memory |
+| 1 | **OCR Correction** | LLM | Cleans and enhances raw OCR output |
+| 2 | **Document Understanding** | LLM | Extracts structured fields — vendor, amount, dates, PO number |
+| 3 | **Intake Parser** | LLM | Schema enforcement and confidence scoring |
+| 4 | **Supervisor** | LLM | Quality gate — validates parsed data meets processing thresholds |
+| 5 | **Anomaly Detection** | Hybrid | Z-score + Benford's Law + LLM contextual reasoning |
+| 6 | **Currency Risk** | Hybrid | Live FX + CIP formula + LLM risk assessment |
+| 7 | **Vendor Trust** | Hybrid | Statistical trust model + LLM judgment |
+| 8 | **CFO Intelligence** | LLM + Memory | Multi-turn conversational agent with persistent conversation memory |
 
-Plus: **Payment Execution Agent**, **Verification Agent**, and **Remediation Intelligence** (auto-retries failed payments with error classification).
+Supporting agents: **Payment Execution**, **Verification**, and **Remediation Intelligence** (auto-retries failed payments with error classification).
 
-> **Hybrid = Algorithm + LLM.** The swarm agents don't just ask an LLM — they first run deterministic algorithms (Z-scores, Benford's Law, CIP formula), then feed those results to the LLM for contextual reasoning. Best of both worlds.
+> **Hybrid** means the agent runs deterministic algorithms first (Z-scores, Benford's Law, Covered Interest Parity), then feeds those computed results to the LLM for contextual reasoning. Algorithmic precision combined with LLM flexibility.
 
 ---
 
-## 🔬 Technical Depth
+## Technical Depth
 
 <table>
 <tr><td>
 
 ### Fraud Detection
-- **Benford's Law** — flags amounts where leading-digit distribution deviates from expected mathematical distribution
+- **Benford's Law** — flags amounts where leading-digit distribution deviates from the expected mathematical distribution
 - **Z-Score Analysis** — compares invoice amounts against vendor-specific historical mean and standard deviation
-- **Frequency Profiling** — detects unusual invoice submission patterns
+- **Frequency Profiling** — detects unusual invoice submission patterns per vendor
 
 </td><td>
 
-### Integrity & Safety
-- **SHA-256 Idempotency** — deterministic hash prevents duplicate processing
-- **Cascade Delete** — invoice deletion preserves full audit trail
-- **Levenshtein Distance** — fuzzy vendor name matching for dedup
+### Integrity and Safety
+- **SHA-256 Idempotency** — deterministic hash prevents duplicate processing across the entire pipeline
+- **Cascade Delete** — invoice deletion preserves full audit trail entries
+- **Levenshtein Distance** — fuzzy vendor name matching for deduplication
 
 </td></tr>
 <tr><td>
 
 ### Currency Intelligence
-- **Live FX Rates** — fetches real-time exchange rates via HTTP
+- **Live FX Rates** — fetches real-time exchange rates via HTTP at processing time
 - **Covered Interest Parity** — calculates true currency exposure for foreign invoices
-- **Hedging Recommendations** — flags when hedging is advisable
+- **Hedging Recommendations** — flags when hedging is advisable based on exposure thresholds
 
 </td><td>
 
-### Self-Improvement
-- **Closed Feedback Loop** — payment outcomes feed back to update agent weights
-- **Temporal Decay** — recent performance weighted more than old history
-- **Per-Agent Accuracy** — each agent tracked independently, not as a group
+### Self-Improvement Loop
+- **Closed Feedback Loop** — payment outcomes feed back into agent weight adjustments automatically
+- **Temporal Decay** — recent agent performance weighted more heavily than older history
+- **Per-Agent Accuracy Tracking** — each agent evaluated independently against ground truth
 
 </td></tr>
 </table>
 
 ---
 
-## 📊 By The Numbers
+## Scale
 
 <div align="center">
 
@@ -188,103 +190,105 @@ Plus: **Payment Execution Agent**, **Verification Agent**, and **Remediation Int
 
 ---
 
-## 🖥️ Frontend Pages
+## Frontend
 
-| Page | What It Shows |
+| Page | Description |
 |:---|:---|
-| **Home** | Landing page with live pipeline visualization, demo mode, and onboarding |
-| **Upload** | Drag-and-drop invoice upload with client-side OCR (Tesseract.js), live pipeline progress |
-| **Dashboard** | Real-time invoice monitoring — statuses, confidence scores, trace IDs |
-| **Analytics** | Pipeline performance metrics, throughput, success/failure rates |
+| **Home** | Landing page with live pipeline visualization, interactive demo mode, and onboarding flow |
+| **Upload** | Drag-and-drop invoice upload with client-side OCR (Tesseract.js), real-time pipeline progress |
+| **Dashboard** | Live invoice monitoring — statuses, confidence scores, trace IDs |
+| **Analytics** | Pipeline performance metrics, throughput, success and failure rates |
 | **Audit** | Complete immutable audit trail — every agent action on every invoice |
-| **Payments** | Payment ledger with execution + verification status |
-| **Policy** | Supervisor and policy engine decision log (ALLOW / DENY with reasons) |
+| **Payments** | Payment ledger with execution and verification status |
+| **Policy** | Supervisor and policy engine decision log with reasoning |
 | **Errors** | Error log with full context for debugging |
-| **CFO AI** | Multi-turn chat interface — ask your CFO agent anything about the pipeline |
+| **CFO AI** | Multi-turn chat interface — ask the CFO agent anything about the pipeline |
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 AutoFlow AI/
-│
-├── apps/frontend/                    # React + TypeScript + Vite
+|
+├── apps/frontend/                    React + TypeScript + Vite
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── SwarmViz.tsx          # Swarm vote visualization (GO/REVIEW/BLOCK)
-│   │   │   ├── PipelineVisualizer.tsx # Real-time pipeline stage tracker
-│   │   │   ├── DemoMode.tsx          # Simulated pipeline demo for landing page
-│   │   │   ├── SystemStatusBanner.tsx # n8n health check indicator
-│   │   │   └── ui/                   # shadcn/ui primitives
+│   │   │   ├── SwarmViz.tsx          Swarm vote visualization (GO / REVIEW / BLOCK)
+│   │   │   ├── PipelineVisualizer.tsx Real-time pipeline stage tracker
+│   │   │   ├── DemoMode.tsx          Simulated pipeline demo for landing page
+│   │   │   ├── SystemStatusBanner.tsx n8n health check indicator
+│   │   │   └── ui/                   shadcn/ui primitives
 │   │   ├── hooks/
-│   │   │   └── use-sheet-data.ts     # Google Sheets GViz API fetcher (15s polling)
+│   │   │   └── use-sheet-data.ts     Google Sheets GViz API fetcher (15s polling)
 │   │   ├── lib/
-│   │   │   ├── config.ts            # API base URL, Sheet ID, timeouts
-│   │   │   └── ocr.ts              # Tesseract.js + pdfjs-dist (client-side OCR)
-│   │   └── pages/                   # 9 pages (Home → CFO AI)
-│   ├── dist/                        # Production build (pre-built, ready to deploy)
+│   │   │   ├── config.ts            API base URL, Sheet ID, timeouts
+│   │   │   └── ocr.ts              Tesseract.js + pdfjs-dist (client-side OCR)
+│   │   └── pages/                   9 pages (Home through CFO AI)
+│   ├── dist/                        Production build (pre-built, ready to deploy)
 │   ├── package.json
 │   └── vite.config.ts
-│
+|
 └── services/n8n-workflows/
-    └── ET GEN AI 28 MARCH.json      # Full 148-node n8n workflow (importable)
+    └── ET GEN AI 28 MARCH.json      Full 148-node n8n workflow (importable)
 ```
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
-**Google Sheets** — 6 sheets, publicly readable, zero-config.
+**Google Sheets** — 6 sheets, publicly readable, zero configuration required.
 
 | Sheet | Purpose |
 |:---|:---|
-| `invoices` | Parsed invoice records (trace_id, vendor, amount, currency, confidence, status) |
+| `invoices` | Parsed invoice records — trace_id, vendor, amount, currency, confidence, status |
 | `audit_ledger` | Immutable log of every agent action — the single source of truth |
-| `errors` | Error log with agent name, error type, full context |
-| `policy_decisions` | Supervisor + policy engine outcomes (ALLOW / DENY + reason) |
+| `errors` | Error log with agent name, error type, and full context |
+| `policy_decisions` | Supervisor and policy engine outcomes — ALLOW or DENY with reasoning |
 | `payment_ledger` | Payment execution records with gateway response |
-| `swarm_feedback` | Closed-loop feedback — agent votes, payment outcome, accuracy, weight updates |
+| `swarm_feedback` | Closed-loop feedback — agent votes, payment outcome, accuracy scores, weight updates |
 
-> The frontend reads these sheets directly via Google's GViz API — no backend required for reads. Every data point in the UI is pulled live from the sheet.
+The frontend reads these sheets directly via Google's GViz API — no backend required for reads. Every data point in the UI is pulled live from the sheet.
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 **Base URL:** `https://n8n-latest-1ikm.onrender.com`
+
+All endpoints are **live and accepting requests** right now.
 
 | Method | Endpoint | Purpose |
 |:---:|:---|:---|
 | POST | `/webhook/intake-invoice` | Submit an invoice for full pipeline processing |
-| POST | `/webhook/supervisor-policy` | Trigger supervisor + policy check on parsed data |
+| POST | `/webhook/supervisor-policy` | Trigger supervisor and policy check on parsed data |
 | POST | `/webhook/analytics` | Fetch pipeline analytics data |
 | POST | `/webhook/delete-invoice` | Delete an invoice (audit trail preserved) |
 | POST | `/webhook/mock-payment` | Mock payment gateway for testing |
 
 ---
 
-## ⚡ Quick Start — Frontend
+## Quick Start — Frontend
 
 ### Prerequisites
 
-- **Node.js** ≥ 18 (or **Bun**)
+- **Node.js** version 18 or higher (or **Bun**)
 
-### Install & Run
+### Install and Run
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone <repo-url>
 cd "AutoFlow AI/apps/frontend"
 
 # Install dependencies
 npm install          # or: bun install
 
-# Start dev server (http://localhost:8080)
+# Start development server (http://localhost:8080)
 npm run dev          # or: bun dev
 
 # Build for production
-npm run build        # output: ./dist/
+npm run build        # output goes to ./dist/
 
 # Run tests
 npm run test
@@ -292,11 +296,11 @@ npm run test
 
 ### Configuration
 
-The frontend is **pre-configured** to point at the live n8n instance. No env files, no setup.
+The frontend is **pre-configured** to point at the live n8n instance. No environment files needed, no additional setup.
 
-To change the API URL at runtime: open the **Upload** page → click **⚙ API Settings** → enter your URL.
+To change the API URL at runtime: open the **Upload** page, click **API Settings** in the top-right corner, enter your custom n8n base URL, and save.
 
-To change defaults, edit `src/lib/config.ts`:
+To change defaults in code, edit `src/lib/config.ts`:
 
 ```typescript
 const DEFAULT_API_URL = "https://n8n-latest-1ikm.onrender.com";
@@ -305,47 +309,47 @@ export const SPREADSHEET_ID = "1wPXKW_E7VJuVueJLkusT4NvcRww2GIUr0JwKxWByHTU";
 
 ---
 
-## 🔧 n8n Workflow Setup
+## n8n Workflow Setup
 
-### Option A — Use Our Live Instance (No Setup)
+### Option A — Use the Live Instance (No Setup Required)
 
-Everything is **already deployed and running**:
+The entire workflow is **already deployed and running** at:
 
 ```
 https://n8n-latest-1ikm.onrender.com
 ```
 
-The frontend points here by default. Just start the frontend and go.
+The frontend points here by default. Start the frontend and everything works out of the box.
 
-### Option B — Import Into Your Own n8n
+### Option B — Import Into Your Own n8n Instance
 
-1. Open your n8n instance → **Workflows** → **Import from File**
+1. Open your n8n instance and navigate to **Workflows**, then **Import from File**
 2. Select `services/n8n-workflows/ET GEN AI 28 MARCH.json`
-3. Configure two credentials:
+3. Configure the following credentials:
 
-| Credential | Source |
+| Credential | Where To Get It |
 |:---|:---|
-| **Google Sheets OAuth2** | Google Cloud Console → APIs & Services → OAuth 2.0 |
-| **Groq API Key** | [console.groq.com](https://console.groq.com) (free tier) |
+| **Google Sheets OAuth2** | Google Cloud Console — APIs and Services — OAuth 2.0 Client ID |
+| **Groq API Key** | [console.groq.com](https://console.groq.com) — free tier available |
 
-4. Create a Google Sheet with 6 tabs: `invoices`, `audit_ledger`, `errors`, `policy_decisions`, `payment_ledger`, `swarm_feedback`
-5. Update the Sheet ID across Google Sheets nodes
+4. Create a new Google Sheet with 6 tabs: `invoices`, `audit_ledger`, `errors`, `policy_decisions`, `payment_ledger`, `swarm_feedback`
+5. Update the Sheet ID across all Google Sheets nodes in the workflow
 6. Activate the workflow
 
-### Infrastructure (How We Deployed It)
+### Infrastructure — How It Is Deployed
 
-| Component | Service | Why |
+| Component | Service | Role |
 |:---|:---|:---|
-| **n8n engine** | Render (free tier) | Self-hosted Docker container |
-| **Keep-alive** | UptimeRobot | Pings every 5 min to prevent Render cold starts |
-| **n8n database** | Neon PostgreSQL | Serverless Postgres for workflow state + credentials |
-| **App database** | Google Sheets | Zero-config, publicly auditable, GViz API for reads |
+| **n8n Engine** | Render (free tier) | Self-hosted Docker container running the 148-node workflow |
+| **Keep-Alive** | UptimeRobot | Sends HTTP ping every 5 minutes to prevent Render free-tier spin-down |
+| **n8n Database** | Neon PostgreSQL (serverless) | Stores workflow definitions, encrypted credentials, and execution history |
+| **Application Database** | Google Sheets | All invoice data, audit logs, decisions, and feedback — publicly auditable |
 
 ---
 
-## 🧪 Test It Yourself
+## Test It Live
 
-### Submit an Invoice (Full Pipeline)
+### Submit an Invoice — Full End-to-End Pipeline
 
 ```bash
 curl -X POST https://n8n-latest-1ikm.onrender.com/webhook/intake-invoice \
@@ -356,28 +360,25 @@ curl -X POST https://n8n-latest-1ikm.onrender.com/webhook/intake-invoice \
   }'
 ```
 
-### Fetch Analytics
+### Fetch Pipeline Analytics
 
 ```bash
 curl -X POST https://n8n-latest-1ikm.onrender.com/webhook/analytics \
   -H "Content-Type: application/json" -d '{}'
 ```
 
-### Delete an Invoice
-
-```bash
-curl -X POST https://n8n-latest-1ikm.onrender.com/webhook/delete-invoice \
-  -H "Content-Type: application/json" -d '{"trace_id": "evt_demofinal001"}'
-```
-
-> ⏳ First request may take ~30s if Render is cold-starting. Subsequent requests are fast.
+> The first request after inactivity may take approximately 30 seconds as Render spins up the container. Subsequent requests are fast.
 
 ---
 
 <div align="center">
 
-**Built with obsession by Team Dev Duo** 🚀
+<br/>
 
-_148 nodes. 8 agents. 1 vision — invoices that process themselves._
+**Team Dev Duo**
+
+148 nodes. 8 agents. 1 vision — invoices that process themselves.
+
+<br/>
 
 </div>
